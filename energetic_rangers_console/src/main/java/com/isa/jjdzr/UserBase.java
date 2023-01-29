@@ -2,6 +2,8 @@ package com.isa.jjdzr;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,7 +15,8 @@ public class UserBase {
     }
 
     public static void readUserBaseFromFile () {
-        File file = new File("jjdzr9-energetic-rangers/usersBase.csv");
+        Path path = Paths.get("usersBase.csv");
+        File file = new File(path.toString());
         try {
             Scanner sc = new Scanner(file);
             sc.useDelimiter(",");
