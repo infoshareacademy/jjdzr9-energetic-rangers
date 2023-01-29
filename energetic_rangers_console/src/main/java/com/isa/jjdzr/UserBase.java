@@ -15,8 +15,11 @@ public class UserBase {
     }
 
     public static void readUserBaseFromFile () {
-        Path path = Paths.get("usersBase.csv");
-        File file = new File(path.toString());
+        //te dwie linijki wrzucić do try-catch - jaki wyjątek?
+            final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
+            File file = new File(resource);
+
+
         try {
             Scanner sc = new Scanner(file);
             sc.useDelimiter(",");
@@ -26,11 +29,11 @@ public class UserBase {
                 String surname = sc.next();
                 String email = sc.next();
                 String password = sc.next();
-                System.out.println(id + name +surname +email + password);
+                System.out.print(id + name +surname +email + password);
             }
             sc.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Base of users isn't avaiable. Try later");
+            System.err.println("Base of users isn't avaiable. Try later");
         }
     }
 }
