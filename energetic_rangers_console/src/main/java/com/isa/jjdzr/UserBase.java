@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class UserBase {
-    private final List<User> UsersBase = readUserBaseFromFile();
+    private static List<User> UsersBase = readUserBaseFromFile();
 
-    public List<User> getUsersBase() {
+    public static List<User> getUsersBase() {
         return UsersBase;
     }
 
