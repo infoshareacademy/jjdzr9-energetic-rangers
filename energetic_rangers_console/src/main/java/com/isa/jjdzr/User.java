@@ -1,13 +1,16 @@
 package com.isa.jjdzr;
 
+import java.util.List;
+
 public class User {
-    private String id; //dopisać metodę na towrzenie się id
+    private String id;
     private String name;
     private String surname;
     private String email;
     private String password;
 
     public User (String name, String surname, String email, String password) { //do createuser
+        this.id = generateID();
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -21,7 +24,29 @@ public class User {
         this.password = password;
     }
 
+    private static String generateID () {
+        List<User> userList = UserBase.getUsersBase();
+        String id = Integer.toString(userList.size());
+        return id;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

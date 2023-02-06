@@ -15,7 +15,7 @@ public class UserBase {
         return UsersBase;
     }
 
-    public static List<User> readUserBaseFromFile() {
+    private static List<User> readUserBaseFromFile() {
 
         File file;
 

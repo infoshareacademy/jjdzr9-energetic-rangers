@@ -3,35 +3,59 @@ package com.isa.jjdzr;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
-import java.nio.file.Path;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
-import java.util.Scanner;
 
 public class CreateUser {
 
-    public void addNewUser (String name, String surname, String email, String password){
+    public static List<User> addNewUser (String name, String surname, String email, String password){
+        boolean emailAlreadyExist = false;
         List<User> userList = UserBase.getUsersBase();
         for (User currentUser: userList) {
-            if (!currentUser.getEmail().equalsIgnoreCase(email)){
-                User user = new User(name, surname, email, password);
-                //dodać do pliku csv
-                CSVWriter writer = new CSVWriter(new FileWriter(usersBase.csv, true));
-                UserBase.getUsersBase().add(user);
-                //uwaga, na razie brak id!
-            } else {
-                System.out.println("Konto na taki e-mail zostało już utworzone!");
-                //return null;
+            if (currentUser.getEmail().equalsIgnoreCase(email)) {
+                emailAlreadyExist = true;
             }
+        }
+        if (!emailAlreadyExist) {
+                User user = new User(name, surname, email, password);
+                addRowToCSVFile(user.getId(), user.getName(), user.getSurname(), user.getEmail(), user.getPassword());
+                UserBase.getUsersBase().add(user);
+                System.out.println("User is added to UserBase");
+            } else {
+                System.out.println("Account with this email already exist, try another email");
+            }
+
+        return UserBase.getUsersBase();
+    }
+    public static void addRowToCSVFile (String ...args) {
+        File file;
+        CSVWriter writer;
+
+        try {
+            final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
+            file = new File(resource);
+        } catch (NullPointerException e) {
+            System.err.println("Not found path to base of users");
+            return;
+        }
+        try {
+           writer = new CSVWriter(new FileWriter(file, true));
+        } catch (IOException exception) {
+            System.out.println("Not access to file");
+            return;
+        }
+        writer.writeNext(args);
+        try {
+            writer.close();
+        } catch (IOException exception) {
+            System.out.println("Not access to file");
         }
 
     }
-    public String generateID () {
-        List<User> userList = UserBase.getUsersBase();
-        String id = userList.size().toString;
-     return id;
+    public static void removeLastRow () {
+
     }
+
 
 }
