@@ -3,6 +3,8 @@ package com.isa.jjdzr;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class CreateUser {
@@ -32,8 +34,10 @@ public class CreateUser {
         FileWriter fileWriter;
 
         try {
-            final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
-            file = new File(resource);
+            //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
+            //file = new File(resource);
+            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/usersBase.csv").toFile();
+            file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");
             return;
@@ -53,7 +57,7 @@ public class CreateUser {
                 line.append(',');
             }
         }
-        line.append("\n");
+        //line.append("\n");
         //writer.writeNext(args)
 
         try {

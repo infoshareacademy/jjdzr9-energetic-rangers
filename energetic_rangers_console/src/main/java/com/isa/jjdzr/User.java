@@ -26,7 +26,7 @@ public class User {
 
     private static String generateID () {
         List<User> userList = UserBase.getUsersBase();
-        String id = Integer.toString(userList.size());
+        String id = Integer.toString(userList.size()+1);
         return id;
     }
 

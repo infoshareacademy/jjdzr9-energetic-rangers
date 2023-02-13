@@ -3,6 +3,7 @@ package com.isa.jjdzr;
 import com.opencsv.CSVReader;
 
 import java.io.*;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +25,10 @@ public final class UserBase {
 
         try {
             //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
-            file = Paths.get("userBase.csv").toFile();
+            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/usersBase.csv").toFile();
+
+            file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
+        //System.getProperty()???
             //file = new File(resource);
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");
