@@ -1,7 +1,7 @@
-package com.isa.jjdzr;
+package users;
 
 import com.opencsv.CSVReader;
-
+import users.User;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,25 +11,33 @@ import java.util.List;
 
 public final class UserBase {
     private static List<User> usersBase = readUserBaseFromFile();
+    static final String pathToUserBase = System.getenv("PATH_TO_USER_BASE");
 
     private UserBase() {
     }
 
     public static List<User> getUsersBase() {
-            return usersBase;
-    }
+        return usersBase;
+    } //do usunięcia public, zostawiam, zeby mozna było testować w mainie na razie
 
     private static List<User> readUserBaseFromFile() {
 
         File file;
 
         try {
-            //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
-            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/usersBase.csv").toFile();
-
+            // pierwotne rozwiązanie tylko  do odczytywania: final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
+            //najlepsze rozwiązanie: file = Path.of(pathToUserBase).toFile();
+            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
+            //file = Paths.get(pathToUserBase).toFile();
+            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
+            //jeśli Ci nie działa to wyrażenie poniżej
+            // file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
+            // , to spróbuj zrobić tak:
+            //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
+            //tylko wklej swoją ścieżkę absolutną
+            //TAK SAMO MUSI BYĆ W KLASIE CreateUser!
             file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
-        //System.getProperty()???
-            //file = new File(resource);
+
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");
             return null;

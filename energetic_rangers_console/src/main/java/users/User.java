@@ -1,4 +1,4 @@
-package com.isa.jjdzr;
+package users;
 
 import java.util.List;
 
@@ -9,14 +9,14 @@ public class User {
     private String email;
     private String password;
 
-    public User (String name, String surname, String email, String password) { //do createuser
+     User(String name, String surname, String email, String password) {
         this.id = generateID();
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
     }
-    public User (String id, String name, String surname, String email, String password) { //potrzebne do testowania kodu w UserBase dla ułatwienia, do usunięcia
+    User(String id, String name, String surname, String email, String password) {//do tworzenia usera z na podstawie danych z bazy
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -24,9 +24,9 @@ public class User {
         this.password = password;
     }
 
-    private static String generateID () {
+    private static String generateID() { //do tworzenia nowego usera
         List<User> userList = UserBase.getUsersBase();
-        String id = Integer.toString(userList.size()+1);
+        String id = Integer.toString(userList.size() + 1);
         return id;
     }
 
