@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import static users.UserBase.pathToUserBase;
 
 
 public class CreateUser {
@@ -37,14 +36,15 @@ public class CreateUser {
     private static void addRowToCSVFile(String... args) {
         File file;
         FileWriter fileWriter;
+        final String pathToUserBase = System.getenv("abs");
 
         try {
             //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
             //file = new File(resource);
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/usersBase.csv").toFile();
-            file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
+            //file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
-            //file = Paths.get(pathToUserBase).toFile();
+            file = Paths.get(pathToUserBase).toFile();
 
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");

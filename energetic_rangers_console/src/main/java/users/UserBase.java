@@ -11,7 +11,6 @@ import java.util.List;
 
 public final class UserBase {
     private static List<User> usersBase = readUserBaseFromFile();
-    static final String pathToUserBase = System.getenv("PATH_TO_USER_BASE");
 
     private UserBase() {
     }
@@ -21,6 +20,7 @@ public final class UserBase {
     } //do usunięcia public, zostawiam, zeby mozna było testować w mainie na razie
 
     private static List<User> readUserBaseFromFile() {
+       final String pathToUserBase = System.getenv("abs");
 
         File file;
 
@@ -28,7 +28,9 @@ public final class UserBase {
             // pierwotne rozwiązanie tylko  do odczytywania: final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
             //najlepsze rozwiązanie: file = Path.of(pathToUserBase).toFile();
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
-            //file = Paths.get(pathToUserBase).toFile();
+            System.out.println(pathToUserBase);
+            System.out.println(System.getenv("abs"));
+            file = Paths.get(pathToUserBase).toFile();
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
             //jeśli Ci nie działa to wyrażenie poniżej
             // file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
@@ -36,7 +38,7 @@ public final class UserBase {
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
             //tylko wklej swoją ścieżkę absolutną
             //TAK SAMO MUSI BYĆ W KLASIE CreateUser!
-            file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
+            //file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
 
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");

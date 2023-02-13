@@ -10,6 +10,7 @@ public class App {
         //kod w ramach testu, można usunąć
 
         System.out.println("Hello World!");
+
         List<User> usersBase = UserBase.getUsersBase();
         for (User user : usersBase) {
             System.out.println(user.getId());
