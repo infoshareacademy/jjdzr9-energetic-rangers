@@ -3,16 +3,19 @@ package com.isa.jjdzr;
 import com.opencsv.CSVReader;
 
 import java.io.*;
-import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class UserBase {
-    private static List<User> UsersBase = readUserBaseFromFile();
+public final class UserBase {
+    private static List<User> usersBase = readUserBaseFromFile();
+
+    private UserBase() {
+    }
 
     public static List<User> getUsersBase() {
-        return UsersBase;
+            return usersBase;
     }
 
     private static List<User> readUserBaseFromFile() {
@@ -20,8 +23,9 @@ public class UserBase {
         File file;
 
         try {
-            final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
-            file = new File(resource);
+            //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
+            file = Paths.get("userBase.csv").toFile();
+            //file = new File(resource);
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");
             return null;
@@ -41,7 +45,7 @@ public class UserBase {
         } catch (FileNotFoundException e) {
             System.err.println("Base of users isn't available. Try later");
         }
-        for (int i = 0; i < records.size(); i++) {
+        for (int i = 1; i < records.size(); i++) { //pomijam pierwszy wiersz z nagłówkami
             for (int j = 0; j < records.get(i).size(); j += 5) {
                 String currentId = records.get(i).get(j);
                 String currentName = records.get(i).get(j + 1);

@@ -10,7 +10,7 @@ import java.util.List;
 public class App 
 {
     public static void main( String[] args ) {
-        //kod w ramach testu
+        //kod w ramach testu, można usunąć
 
         System.out.println( "Hello World!" );
 
@@ -20,11 +20,13 @@ public class App
         }
         System.out.println("size: " + usersBase.size());
 
-        CreateUser.addNewUser("Rafał", "Dziedzic", "dziedzic@test.pl", "hasłorafała");
+        CreateUser.addNewUser("Rafał", "Dziedzic", "test@test.pl", "hasłorafała");
         usersBase = UserBase.getUsersBase();
         for (User user:usersBase) {
             System.out.println(user.getId());
         }
         System.out.println("size: " + usersBase.size());
+        for (User user:usersBase) {
+            System.out.println(user.getId());}
     }
 }

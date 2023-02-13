@@ -1,7 +1,5 @@
 package com.isa.jjdzr;
 
-import com.opencsv.CSVWriter;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,7 +28,8 @@ public class CreateUser {
     }
     public static void addRowToCSVFile (String ...args) {
         File file;
-        CSVWriter writer;
+        //CSVWriter writer;
+        FileWriter fileWriter;
 
         try {
             final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
@@ -40,21 +39,34 @@ public class CreateUser {
             return;
         }
         try {
-           writer = new CSVWriter(new FileWriter(file, true));
+           //writer = new CSVWriter(new FileWriter(file, true));
+            fileWriter = new FileWriter(file, true);
         } catch (IOException exception) {
             System.out.println("Not access to file");
             return;
         }
-        writer.writeNext(args);
+        StringBuilder line = new StringBuilder();
+        line.append("\n");
+        for (int i =0; i< args.length; i++) {
+            line.append(args[i]);
+            if (i != args.length-1) {
+                line.append(',');
+            }
+        }
+        line.append("\n");
+        //writer.writeNext(args)
+
         try {
-            writer.close();
+            //writer.close();
+            fileWriter.write(line.toString());
+            fileWriter.close();
         } catch (IOException exception) {
             System.out.println("Not access to file");
         }
 
     }
     public static void removeLastRow () {
-
+    //metoda do testów - usunięcie dodanego użytkownika
     }
 
 
