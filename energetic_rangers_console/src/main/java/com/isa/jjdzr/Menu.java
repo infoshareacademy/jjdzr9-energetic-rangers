@@ -1,5 +1,8 @@
 package com.isa.jjdzr;
 
+
+import users.CreateUser;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,10 +23,23 @@ public class Menu {
         System.out.print("Wybierz opcję wprowadzając numer opcji i zatwierdź ją enterem: ");
         option = scanner.nextInt();
 
+
+
         switch (option) {
             case 1:
-                clearConsole();
-                System.out.println("Wybrałeś opcję " + option);
+                System.out.println("Podaj imię użytkownika");
+                String name = scanner.next();
+                System.out.println("Podaj nazwisko użytkownika");
+                String surname = scanner.next();
+                System.out.println("Podaj adres e-mail użytkownika");
+                String email = scanner.next();
+                System.out.println("Podaj hasło użytkownika");
+                String password = scanner.next();
+                CreateUser.addNewUser (name, surname, email, password);
+                System.out.println("**************************************************");
+                System.out.println("        Użytkownik utworzony poprawnie!" + "\n            Witaj " + name + " " + surname + "\n        Powiedz co chcesz zrobić?  ");
+                System.out.println("**************************************************");
+                menuInvoke();
                 break;
             case 2:
                 System.out.println("Wybrałeś opcję " + option);
