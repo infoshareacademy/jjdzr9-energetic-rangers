@@ -20,23 +20,11 @@ public class OptionService {
         Option optionFilter = new Option(3,"Filtruj");
         optionList.add(optionFilter);
 
+
+
         return optionList;
 
     }
-
-    public static void inovkeMethods ()
-
-    {
-        switch ()
-        {
-            case 1
-
-        }
-
-
-    }
-
-
 
     public static List<Option> getOptionList() {
         return optionList;
