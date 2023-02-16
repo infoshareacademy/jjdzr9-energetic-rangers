@@ -6,7 +6,7 @@ import java.util.*;
 //idevents	nameofevents	date	city	price	quantityoftickets	typeofevent
 public class Filters {
 
-    public List<Event> filterByChildren() {
+    public static List<Event> filterByChildren() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForChildren = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -25,7 +25,7 @@ public class Filters {
 
 
 
-    public List<Event> filterByAdults() {
+    public static List<Event> filterByAdults() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForAdults = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -42,7 +42,7 @@ public class Filters {
 
     }
 
-    public List<Event> filterByDisabled() {
+    public static List<Event> filterByDisabled() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForDisabled = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -59,7 +59,7 @@ public class Filters {
 
     }
 
-    public List<Event> filterBySenior() {
+    public static List<Event> filterBySenior() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForSenior = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -75,7 +75,7 @@ public class Filters {
         return eventsForSenior;
 
     }
-    public List<Event> filterByGdansk() {
+    public static List<Event> filterByGdansk() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForGdansk = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -92,7 +92,7 @@ public class Filters {
 
     }
 
-    public List<Event> filterByGdynia() {
+    public static List<Event> filterByGdynia() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForGdynia = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -109,7 +109,7 @@ public class Filters {
 
     }
 
-    public List<Event> filterBySopot() {
+    public static List<Event> filterBySopot() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsForSopot = new ArrayList<>();
         for (Event currentEvent : eventsBase) {
@@ -126,14 +126,12 @@ public class Filters {
 
     }
 
-    public List<Event> filterByDate() {
+    public static List<Event> filterByDate() {
         List<Event> eventsBase = EventsBase.getEventBase();
         List<Event> eventsByDate = new ArrayList<>();
 
             Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Podaj date ktora Cie interesuje w formacie DD.MM.RR: ");
-        String userDate = scanner.nextLine();
+            String userDate = scanner.nextLine();
 
         for (Event currentEvent : eventsBase) {
             if (currentEvent.getDate().equals(userDate)) {

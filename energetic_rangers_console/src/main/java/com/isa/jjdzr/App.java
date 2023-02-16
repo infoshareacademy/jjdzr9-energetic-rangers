@@ -11,6 +11,7 @@ public class App
         Filters filter = new Filters();
 
         filter.filterByChildren();
+        filter.filterByGdynia();
 
     }
 }
