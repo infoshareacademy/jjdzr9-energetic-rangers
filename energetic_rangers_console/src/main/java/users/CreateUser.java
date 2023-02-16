@@ -42,7 +42,7 @@ public class CreateUser {
             //final String resource = UserBase.class.getClassLoader().getResource("usersBase.csv").getPath();
             //file = new File(resource);
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/usersBase.csv").toFile();
-            file = Path.of("src", "main", "resources", "usersBase.csv").toFile();
+            file = Paths.get("/Users/java/pracaDomowaGit/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
             //file = Paths.get(pathToUserBase).toFile();
 

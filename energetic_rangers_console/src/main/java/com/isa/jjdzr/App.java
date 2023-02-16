@@ -1,5 +1,4 @@
 package com.isa.jjdzr;
-
 import users.CreateUser;
 import users.User;
 import users.UserBase;
@@ -9,10 +8,9 @@ public class App {
     public static void main(String[] args) {
         //kod w ramach testu, można usunąć
 
-        System.out.println("Hello World!");
-        List<User> usersBase = UserBase.getUsersBase();
+       /* List<User> usersBase = UserBase.getUsersBase();
         for (User user : usersBase) {
-            System.out.println(user.getId());
+            System.out.println(user.getId() + usersBase.size());
         }
         System.out.println("size: " + usersBase.size());
 
@@ -21,6 +19,14 @@ public class App {
         for (User user : usersBase) {
             System.out.println(user.getId());
         }
-        System.out.println("size: " + usersBase.size());
+        System.out.println("size: " + usersBase.size());*/
+
+        Menu menu =new Menu();
+        menu.menuInvoke();
+
+        OptionService optionService =new OptionService();
+        optionService.createOptionList();
+
+        System.out.println(optionService.getOptionList());
     }
 }

@@ -8,12 +8,12 @@ public class EventsBase {
    public static List<Event> eventBase = new ArrayList<>();
 
     private static  List<Event>  createEvents(){
-        Event event1 = new Event("1","KOncert",10, "children", "Gdansk", "12.01.23");
-        Event event2 = new Event("2","KOncert2",12, "adults", "Sopot", "12.02.23");
-        Event event3 = new Event("3","KOncert3",12, "senior", "Gdynia", "12.01.23");
-        Event event4 = new Event("4","KOncert4",12, "children", "Gdansk", "12.01.23");
-        Event event5 = new Event("5","KOncert5",12, "disabled", "Gdynia", "23.01.23");
-        Event event6 = new Event("6","KOncert6",12, "adults", "Sopot", "11.01.23");
+        Event event1 = new Event("1","Koncert",10, "children", "Gdansk", "12.01.23");
+        Event event2 = new Event("2","Koncert2",12, "adults", "Sopot", "12.02.23");
+        Event event3 = new Event("3","Koncert3",12, "senior", "Gdynia", "12.01.23");
+        Event event4 = new Event("4","Koncert4",12, "children", "Gdansk", "12.01.23");
+        Event event5 = new Event("5","Koncert5",12, "disabled", "Gdynia", "23.01.23");
+        Event event6 = new Event("6","Koncert6",12, "adults", "Sopot", "11.01.23");
         eventBase.add(event1);
         eventBase.add(event2);
         eventBase.add(event3);
