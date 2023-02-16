@@ -1,8 +1,5 @@
 package com.isa.jjdzr;
-
-
 import users.CreateUser;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,11 +7,12 @@ import java.util.Scanner;
 public class Menu {
     public void menuInvoke() {
         List<Option> optionList = OptionService.getOptionList();
+        List<Option> filterList = OptionService.getFilterList();
         Scanner scanner = new Scanner(System.in);
         int option = 0;
 
 
-        System.out.println("=== Wyszukiwarka wydzarzeń kulturalnych ===");
+        System.out.println("=== Wyszukiwarka wydarzeń kulturalnych ===");
         for (Option x : optionList) {
 
             System.out.println(x.getIndex() + " " + x.getName());
@@ -27,6 +25,7 @@ public class Menu {
 
         switch (option) {
             case 1:
+                clearConsole();
                 System.out.println("Podaj imię użytkownika");
                 String name = scanner.next();
                 System.out.println("Podaj nazwisko użytkownika");
@@ -45,17 +44,25 @@ public class Menu {
                 System.out.println("Wybrałeś opcję " + option);
                 break;
             case 3:
-                System.out.println("Wybrałeś opcję " + option);
+                for (Option x : filterList) {
+
+                    System.out.println(x.getIndex() + " " + x.getName());
+                }
+                String filterchoice = scanner.next();
                 break;
             case 4:
                 System.out.println("Program został zakończony...Do widzenia!");
                 break;
             case 5:
+
                 menuInvoke();
                 break;
             default:
-                System.out.println("nieprawidłowy wybór opcji. Wybierz prawidłową opcję");
-                scanner.close();
+                clearConsole();
+                System.out.println("**************************************************");
+                System.out.println("Nieprawidłowy wybór opcji! Wybierz prawidłową opcję");
+                System.out.println("**************************************************");
+                menuInvoke();
                 break;
         } }
 
@@ -80,7 +87,7 @@ public class Menu {
             }
         }
 
-
+//scanner.close();
 
 }
 
