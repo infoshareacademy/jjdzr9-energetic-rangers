@@ -1,33 +1,38 @@
 package com.isa.jjdzr;
+
 import users.CreateUser;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public void menuInvoke() {
-        List<Option> optionList = OptionService.getOptionList();
-        List<Option> filterList = OptionService.getFilterList();
-        List<Event> events = EventsBase.getEventBase();
+
+
+    public static void menuInvoke() {
         Scanner scanner = new Scanner(System.in);
-        String option;
+        List<Option> optionList = OptionService.getOptionList();
 
 
-        System.out.println("=== Wyszukiwarka wydarzeń kulturalnych ===");
+        System.out.println("**************************************************");
+        System.out.println("       Wyszukiwarka wydarzeń kulturalnych         ");
+        System.out.println("**************************************************");
+        System.out.println("\n");
+
         for (Option x : optionList) {
 
             System.out.println(x.getIndex() + " " + x.getName());
         }
-
+        System.out.println("\n");
         System.out.print("Wybierz opcję wprowadzając numer opcji i zatwierdź ją enterem: ");
-        option = scanner.nextLine();
+        String option = scanner.nextLine();
 
         try {
             int value = Integer.parseInt(option);
 
             switch (value) {
                 case 1:
-                    clearConsole();
+                    ClearConsole.clearConsole();
                     System.out.println("Podaj imię użytkownika");
                     String name = scanner.next();
                     System.out.println("Podaj nazwisko użytkownika");
@@ -37,36 +42,31 @@ public class Menu {
                     System.out.println("Podaj hasło użytkownika");
                     String password = scanner.next();
                     CreateUser.addNewUser(name, surname, email, password);
+                    ClearConsole.clearConsole();
                     System.out.println("**************************************************");
                     System.out.println("        Użytkownik utworzony poprawnie!" + "\n            Witaj " + name + " " + surname + "\n        Powiedz co chcesz zrobić?  ");
                     System.out.println("**************************************************");
                     menuInvoke();
                     break;
+
                 case 2:
-                    System.out.println("Wybrałeś opcję " + option);
+                    ClearConsole.clearConsole();
+                    EventsFilterMenu.filterMenuInvoke();
                     break;
+
+
                 case 3:
-                    for (Option x : filterList) {
-
-                        System.out.println(x.getIndex() + " " + x.getName());
-                    }
-                    String filterchoice = scanner.next();
+                    ClearConsole.clearConsole();
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("**************************************************");
+                    System.out.println("     Program został zakończony...Do widzenia!     ");
+                    System.out.println("**************************************************");
+                    System.out.println("\n");
+                    System.out.println("\n");
                     break;
-                case 4:
-                    for (Event x : events) {
-
-                        System.out.println(x.IDevents + " |" + x.getNameOfEvent() + "|" + x.getTypeOfEvent());
-                    }
-                    System.out.println("Program został zakończony...Do widzenia!");
-                    break;
-                case 5:
-
-                    menuInvoke();
-                    break;
-
-
                 default:
-                    clearConsole();
+                    ClearConsole.clearConsole();
                     System.out.println("**************************************************");
                     System.out.println("Nieprawidłowy wybór opcji! Wybierz prawidłową opcję");
                     System.out.println("**************************************************");
@@ -75,40 +75,21 @@ public class Menu {
             }
         } catch (NumberFormatException e) {
 
-            clearConsole();
+            ClearConsole.clearConsole();
             System.out.println("**************************************************");
-            System.out.println("Opcja nie może być literą! Wybierz opcję podaj");
+            System.out.println("Opcja nie może być literą! Wybierz opcję podając cyfrę");
             System.out.println("**************************************************");
             menuInvoke();
 
-        }}
-
-
-
-        public final static void clearConsole()
-        {
-            try
-            {
-                final String os = System.getProperty("os.name");
-
-                if (os.contains("Windows"))
-                {
-                    Runtime.getRuntime().exec("cls");
-                }
-                else
-                {
-                    Runtime.getRuntime().exec("clear");
-                }
-            }
-            catch (final Exception e)
-            {
-                //  Handle any exceptions.
-            }
         }
+    }
 
-//scanner.close();
 
 }
+
+
+
+
 
 
 
