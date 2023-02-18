@@ -10,7 +10,7 @@ public class Menu {
         List<Option> filterList = OptionService.getFilterList();
         List<Event> events = EventsBase.getEventBase();
         Scanner scanner = new Scanner(System.in);
-        int option = 0;
+        String option;
 
 
         System.out.println("=== Wyszukiwarka wydarzeń kulturalnych ===");
@@ -20,56 +20,70 @@ public class Menu {
         }
 
         System.out.print("Wybierz opcję wprowadzając numer opcji i zatwierdź ją enterem: ");
-        option = scanner.nextInt();
+        option = scanner.nextLine();
+
+        try {
+            int value = Integer.parseInt(option);
+
+            switch (value) {
+                case 1:
+                    clearConsole();
+                    System.out.println("Podaj imię użytkownika");
+                    String name = scanner.next();
+                    System.out.println("Podaj nazwisko użytkownika");
+                    String surname = scanner.next();
+                    System.out.println("Podaj adres e-mail użytkownika");
+                    String email = scanner.next();
+                    System.out.println("Podaj hasło użytkownika");
+                    String password = scanner.next();
+                    CreateUser.addNewUser(name, surname, email, password);
+                    System.out.println("**************************************************");
+                    System.out.println("        Użytkownik utworzony poprawnie!" + "\n            Witaj " + name + " " + surname + "\n        Powiedz co chcesz zrobić?  ");
+                    System.out.println("**************************************************");
+                    menuInvoke();
+                    break;
+                case 2:
+                    System.out.println("Wybrałeś opcję " + option);
+                    break;
+                case 3:
+                    for (Option x : filterList) {
+
+                        System.out.println(x.getIndex() + " " + x.getName());
+                    }
+                    String filterchoice = scanner.next();
+                    break;
+                case 4:
+                    for (Event x : events) {
+
+                        System.out.println(x.IDevents + " |" + x.getNameOfEvent() + "|" + x.getTypeOfEvent());
+                    }
+                    System.out.println("Program został zakończony...Do widzenia!");
+                    break;
+                case 5:
+
+                    menuInvoke();
+                    break;
 
 
+                default:
+                    clearConsole();
+                    System.out.println("**************************************************");
+                    System.out.println("Nieprawidłowy wybór opcji! Wybierz prawidłową opcję");
+                    System.out.println("**************************************************");
+                    menuInvoke();
+                    break;
+            }
+        } catch (NumberFormatException e) {
 
-        switch (option) {
-            case 1:
-                clearConsole();
-                System.out.println("Podaj imię użytkownika");
-                String name = scanner.next();
-                System.out.println("Podaj nazwisko użytkownika");
-                String surname = scanner.next();
-                System.out.println("Podaj adres e-mail użytkownika");
-                String email = scanner.next();
-                System.out.println("Podaj hasło użytkownika");
-                String password = scanner.next();
-                CreateUser.addNewUser (name, surname, email, password);
-                System.out.println("**************************************************");
-                System.out.println("        Użytkownik utworzony poprawnie!" + "\n            Witaj " + name + " " + surname + "\n        Powiedz co chcesz zrobić?  ");
-                System.out.println("**************************************************");
-                menuInvoke();
-                break;
-            case 2:
-                System.out.println("Wybrałeś opcję " + option);
-                break;
-            case 3:
-                for (Option x : filterList) {
+            clearConsole();
+            System.out.println("**************************************************");
+            System.out.println("Opcja nie może być literą! Wybierz opcję podaj");
+            System.out.println("**************************************************");
+            menuInvoke();
 
-                    System.out.println(x.getIndex() + " " + x.getName());
-                }
-                String filterchoice = scanner.next();
-                break;
-            case 4:
-                for (Event x : events) {
+        }}
 
-                    System.out.println(x.IDevents + " |" + x.getNameOfEvent() + "|" +  x.getTypeOfEvent());
-                }
-                System.out.println("Program został zakończony...Do widzenia!");
-                break;
-            case 5:
 
-                menuInvoke();
-                break;
-            default:
-                clearConsole();
-                System.out.println("**************************************************");
-                System.out.println("Nieprawidłowy wybór opcji! Wybierz prawidłową opcję");
-                System.out.println("**************************************************");
-                menuInvoke();
-                break;
-        } }
 
         public final static void clearConsole()
         {
