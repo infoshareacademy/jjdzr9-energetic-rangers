@@ -1,0 +1,13 @@
+package com.isa.jjdzr.energetic_rangers_web;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AplikacjaWebowaApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
