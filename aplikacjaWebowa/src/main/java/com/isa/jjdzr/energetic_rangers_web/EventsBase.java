@@ -7,6 +7,7 @@ public class EventsBase {
 
    public static List<Event> eventBase = new ArrayList<>();
 
+   //uploadEvents - metoda do zwracania eventów
     private static  List<Event>  createEvents(){
         Event event1 = new Event("1","Jaś i małgosia",10, "children", "Gdansk", "12.01.23");
         Event event2 = new Event("2","Duma i uprzedzenie",12, "adults", "Sopot", "12.02.23");
