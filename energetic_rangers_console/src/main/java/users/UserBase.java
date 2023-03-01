@@ -1,6 +1,7 @@
 package users;
 
 import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvValidationException;
 import users.User;
 import java.io.*;
 import java.nio.file.Path;
@@ -53,6 +54,8 @@ public final class UserBase {
                 }
             } catch (IOException exception) {
                 System.out.println("Base of users isn't ready to read.");
+            } catch (CsvValidationException e) {
+                throw new RuntimeException(e);
             }
         } catch (FileNotFoundException e) {
             System.err.println("Base of users isn't available. Try later");
