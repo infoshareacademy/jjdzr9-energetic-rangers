@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xml:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/siginstyle.css">
+  <script defer src="/signin-script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="login-component">
+
+
+  <h1>Zaloguj się</h1>
+  <br>
+
+  <div class="registration-form">
+
+
+    <form class="input-group row ralign-items-center">
+
+      <div class="row mb-3 col-sm1">
+        <label for="email">Adres e-mail</label>
+        <input id ="email" type ="email" th:txt="${loginForm.email}" class="form-control" placeholder="Jan.Kowalski@gmail.com" required>
+      </div>
+      <div class="row mb-3 col-sm1">
+        <label for="password">Hasło</label>
+        <input type ="password" th:txt="${loginForm.password}" id="password" class="form-control" placeholder="*****" required>
+      </div>
+
+      <div class="button-submit">
+        <button type="submit" id="submit-btn" class="btn btn-primary justify-content-center">Zaloguj się</button>
+      </div>
+
+    </form>
+    <div class="img">
+      <img src="gdansk_motlawa_1170.jpg" id="picture-gdansk" class="rounded mx-auto d-block" alt="Miasto Gdańsk">
+    </div>
+
+
+  </div>
+</div>
+
+</body>
+</html>
