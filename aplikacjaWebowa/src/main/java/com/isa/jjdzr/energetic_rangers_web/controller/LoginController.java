@@ -11,7 +11,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login (Model model) {
-        model.addAttribute("loginForm", new LoginForm());
+        model.addAttribute("loginForm", new LoginForm()); //ja tu muszę wywołać fukcję login
         return "components/login-form";
     }
 }
