@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 
-public class eventsItem {
 
+public class EventsItem {
     private String IDevents;
     private String nameOfEvent;
     private int numberOfTickets;
@@ -25,9 +25,7 @@ public class eventsItem {
     private String description;
 
 
-
-
-
-
-
 }
+
+
+

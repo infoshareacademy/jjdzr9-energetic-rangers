@@ -1,12 +1,23 @@
 package com.isa.jjdzr.energetic_rangers_web;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 public class Event {
-    String IDevents;
-    String nameOfEvent;
-    int numberOfTickets;
-    String typeOfEvent;
-    String city;
-    String date;
+    private String IDevents;
+    private String nameOfEvent;
+    private int numberOfTickets;
+    private String typeOfEvent;
+    private String city;
+    private String date;
+/*
 
     public String getDate() {
         return date;
@@ -47,16 +58,6 @@ public class Event {
     public void setTypeOfEvent(String typeOfEvent) {
         this.typeOfEvent = typeOfEvent;
     }
-
-    public Event(String IDevents, String nameOfEvent, int numberOfTickets, String typeOfEvent, String city, String date) {
-        this.IDevents = IDevents;
-        this.nameOfEvent = nameOfEvent;
-        this.numberOfTickets = numberOfTickets;
-        this.typeOfEvent = typeOfEvent;
-        this.city = city;
-        this.date = date;
-    }
-
-
+*/
 
 }
