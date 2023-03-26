@@ -29,6 +29,46 @@
     <div class="card-body">
         <a href="#" class="btn btn-primary">Zarezerwuj</a>
     </div>
+
+    <tr class="inner-box"th:fragment="smallEventCard2">
+        <th scope="row">
+            <div class="event-date">
+                <span th:text = "${eventsItem.dayOfEvent}" >16</span>
+                <p th:text = "${eventsItem.city}">Novembar</p>
+            </div>
+        </th>
+        <td>
+            <div class="event-img">
+                <img th:src= "@{${eventsItem.imgUrl}}" alt="" />
+            </div>
+        </td>
+        <td>
+            <div class="event-wrap">
+                <h3 th:text = "${eventsItem.nameOfEvent}"><a href="#">Harman Kardon</a></h3>
+                <div class="meta">
+                    <div class="organizers" >
+                        <a th:text = "${eventsItem.numberOfTickets}" href="#">Aslan Lingker</a>
+                    </div>
+                    <div class="categories" th:text = "${eventsItem.typeOfEvent}">
+                        <a href="#">Inspire</a>
+                    </div>
+                    <div class="time">
+                        <span th:text = "${eventsItem.description}">05:35 AM - 08:00 AM 2h 25'</span>
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div class="r-no">
+                <span th:text = "${eventsItem.price}" >Room B3</span>
+            </div>
+        </td>
+        <td>
+            <div class="primary-btn">
+                <a class="btn btn-primary" href="#">Zarezerwuj</a>
+            </div>
+        </td>
+    </tr>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

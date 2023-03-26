@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigDecimal;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -17,12 +15,18 @@ public class EventsItem {
     private String IDevents;
     private String nameOfEvent;
     private int numberOfTickets;
-    private BigDecimal price;
+    private Double price;
     private String imgUrl;
     private String typeOfEvent;
     private String city;
     private String date;
     private String description;
+
+    private String dayOfEvent;
+
+    private String monthOfEvent;
+
+    private String yearOfEvent;
 
 
 }
