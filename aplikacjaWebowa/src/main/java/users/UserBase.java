@@ -1,6 +1,7 @@
 package users;
 
 import com.opencsv.CSVReader;
+import model.User;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,7 +39,7 @@ public final class UserBase {
             //file = Paths.get("/home/kasia/IdeaProjects/projekt_konsolowy/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
             //tylko wklej swoją ścieżkę absolutną
             //TAK SAMO MUSI BYĆ W KLASIE CreateUser!
-            file = Paths.get("/Users/java/pracaDomowaGit/jjdzr9-energetic-rangers/energetic_rangers_console/src/main/resources/usersBase.csv").toFile();
+            file = Paths.get("/home/kasia/IdeaProjects/projekt_energetic_rangers/projekt_konsolowy/jjdzr9-energetic-rangers/aplikacjaWebowa/src/main/resources/usersBase.csv").toFile();
 
         } catch (NullPointerException e) {
             System.err.println("Not found path to base of users");

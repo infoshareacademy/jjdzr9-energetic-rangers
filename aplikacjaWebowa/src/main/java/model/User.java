@@ -26,8 +26,13 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    public User() {
+        this.id = generateID();
+    }
+
     private static String generateID() { //do tworzenia nowego usera
-        List<users.User> userList = UserBase.getUsersBase();
+        List<model.User> userList = UserBase.getUsersBase();
         String id = Integer.toString(userList.size() + 1);
         return id;
     }

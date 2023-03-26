@@ -12,8 +12,7 @@
 </head>
 <body>
 
-<div class="registration-component">
-
+<div th:fragment="registrationForm" class="registration-component">
 
   <h1>Zarejestruj się</h1>
   <br>
@@ -21,28 +20,28 @@
   <div class="registration-form">
 
 
-    <form th:action="@{/signin}" method="post" class="form input-group row ralign-items-center was-walidated">
+    <form th:action="@{/signin}" method="post" class="form input-group row ralign-items-center was-walidated" th:object="${user}">
       <div class="mb-3">
         <label for="administrator" class="form-label">Jestem administratorem</label>
         <input type="checkbox" id="administrator" name="userType" value="administrator">
       </div>
 
       <div class="row  mb-3 col-sm1 has-validation">
-        <label for="name"class="form-label">Imię</label>
-        <input id="name" class="form-control" placeholder="Jan" required>
+        <label for="name"  class="form-label">Imię</label>
+        <input id="name" th:field="*{name}" class="form-control" placeholder="Jan" required>
       </div>
 
       <div class="row  mb-3 col-sm1">
         <label for="surname">Nazwisko</label>
-        <input id="surname" class="form-control" placeholder="Kowalski" required>
+        <input id="surname" th:field="*{surname}" class="form-control" placeholder="Kowalski" required>
       </div>
       <div class="row mb-3 col-sm1">
         <label for="email">Adres e-mail</label>
-        <input id ="email" type ="email" class="form-control" placeholder="Jan.Kowalski@gmail.com" required>
+        <input id ="email" th:field="*{email}" type ="email" class="form-control" placeholder="Jan.Kowalski@gmail.com" required>
       </div>
       <div class="row mb-3 col-sm1">
         <label for="password">Hasło</label>
-        <input type ="password"id="password" class="form-control" placeholder="*****" required>
+        <input type ="password" th:field="*{password}" id="password" class="form-control" placeholder="*****" required>
       </div>
       <div class="row mb-3 col-sm1">
         <label for="repeatpass">Powtórz hasło</label>

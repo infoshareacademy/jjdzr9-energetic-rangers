@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="login-component">
+<div th:fragment="loginFrom" class="login-component">
 
 
   <h1>Zaloguj się</h1>
@@ -21,15 +21,15 @@
   <div class="registration-form">
 
 
-    <form class="input-group row ralign-items-center">
+    <form class="input-group row ralign-items-center" th:action="@{/login}" method="post" th:object="${loginForm}">
 
       <div class="row mb-3 col-sm1">
         <label for="email">Adres e-mail</label>
-        <input id ="email" type ="email" th:txt="${loginForm.email}" class="form-control" placeholder="Jan.Kowalski@gmail.com" required>
+        <input id ="email" type ="email" th:field="*{email}" class="form-control" placeholder="Jan.Kowalski@gmail.com" required>
       </div>
       <div class="row mb-3 col-sm1">
         <label for="password">Hasło</label>
-        <input type ="password" th:txt="${loginForm.password}" id="password" class="form-control" placeholder="*****" required>
+        <input type ="password" th:field="*{password}" id="password" class="form-control" placeholder="*****" required>
       </div>
 
       <div class="button-submit">

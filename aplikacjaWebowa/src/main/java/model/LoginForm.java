@@ -12,6 +12,6 @@ import lombok.Setter;
 public class LoginForm {
     private String email;
     private String password;
-//do usunnięcia wszystko robimy na userze????
+
 
 }
