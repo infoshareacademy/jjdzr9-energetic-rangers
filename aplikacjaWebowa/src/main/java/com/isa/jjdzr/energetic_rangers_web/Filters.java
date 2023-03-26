@@ -1,5 +1,7 @@
 package com.isa.jjdzr.energetic_rangers_web;
 
+import com.isa.jjdzr.energetic_rangers_web.model.EventsItem;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,6 +27,23 @@ public class Filters {
             return eventsForChildren;
 
         }
+
+    public static List<EventsItem> filterByChildren2() {
+        List<EventsItem> eventsBase = EventsBase.getEventBase2();
+        List<EventsItem> eventsForChildren = new ArrayList<>();
+        for (EventsItem currentEvent : eventsBase) {
+
+            if (currentEvent.getTypeOfEvent().equals("Dla dzieci")) {
+                eventsForChildren.add(currentEvent);
+            }
+        }
+        for (EventsItem eventsForChild : eventsForChildren) {
+            System.out.println(eventsForChild.getNameOfEvent());
+
+        }
+        return eventsForChildren;
+
+    }
 
 
 
