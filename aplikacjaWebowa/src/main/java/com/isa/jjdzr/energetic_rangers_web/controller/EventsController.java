@@ -13,9 +13,9 @@ import java.util.List;
 public class EventsController {
 
     private List<EventsItem> eventItemsList = EventsBase.getEventBase2();
-    private List<EventsItem> eventItemsList2 = Filters.filterByChildren2();
+    private List<EventsItem> eventsForChildren = Filters.filterByChildren2();
 
-    @GetMapping("/wydarzenia")
+    @GetMapping("/wydarzenia/wszystkie")
    public String home(Model model){
         model.addAttribute("eventsItem",eventItemsList);
 
@@ -23,9 +23,9 @@ public class EventsController {
 
     }
 
-    @GetMapping("/dladzieci")
+    @GetMapping("/wydarzenia/dladzieci")
     public String forChildren(Model model){
-        model.addAttribute("eventsItem",eventItemsList2);
+        model.addAttribute("eventsItem",eventsForChildren);
 
         return "pages/listingPage";
 
