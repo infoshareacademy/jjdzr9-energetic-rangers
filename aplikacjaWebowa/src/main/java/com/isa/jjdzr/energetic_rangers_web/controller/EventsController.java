@@ -19,7 +19,7 @@ public class EventsController {
    public String home(Model model){
         model.addAttribute("eventsItem",eventItemsList);
 
-    return "pages/listingPage";
+    return "pages/loginPage";
 
     }
 
