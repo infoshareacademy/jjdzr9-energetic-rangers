@@ -12,6 +12,7 @@
 .registration-form{
     display: flex;
     font-weight: bold;
+    background: #d71414;
 }
 .button-submit {
     margin-top: 25px;

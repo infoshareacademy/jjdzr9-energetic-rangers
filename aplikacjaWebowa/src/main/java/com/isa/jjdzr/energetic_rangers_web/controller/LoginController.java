@@ -4,14 +4,12 @@ import model.LoginForm;
 import model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import users.CreateUser;
 import users.LogINManagment;
 
 @Controller
+@RequestMapping("/login")
 public class LoginController {
 
     @GetMapping("/login")
@@ -22,11 +20,13 @@ public class LoginController {
     @PostMapping
     public String logInUser (@ModelAttribute("loginForm") LoginForm loginForm) {
         boolean ifUserIsLogged = LogINManagment.logInUser(loginForm);
+
         if (ifUserIsLogged) {
-            return "redirect:/";
+            return "pages/home-page";
         } else {
-            return "redirect:/signin";
+            return "pages/login-page";
         }
+
     }
 }
 
